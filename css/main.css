@@ -1,0 +1,29 @@
+header {
+  background-color: #743a00;
+  justify-content: flex-start;
+}
+
+body {
+  background-color: #cccccc;
+}
+
+.mobs {
+  text-align: center;
+  justify-content: center;
+}
+
+.home {
+  height: 100px;
+  width: 100px;
+  padding: 10px;
+}
+
+.pig {
+  border-width: medium;
+  border-style: solid;
+  border-color: green;
+}
+
+img:hover {
+  opacity: 0.5;
+}
