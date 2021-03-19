@@ -1,15 +1,47 @@
+
 header {
-  background-color: #743a00;
+  background-color: #743a00aa;
   justify-content: flex-start;
 }
 
 body {
   background-color: #cccccc;
+  background-image:url("/images/minecraft_bground.jpg");
+  font-family: sans-serif;
+}
+
+li {
+  list-style: square;
 }
 
 .mobs {
+  padding: 25px;
   text-align: center;
   justify-content: center;
+  background-color: #cccccc;
+  width: 1000px;
+  height: 800px;
+  margin: auto;
+}
+
+.mobs-solo {
+  padding: 25px;
+  background-color: #cccccc;
+  width: 1000px;
+  height: 800px;
+  margin: auto;
+}
+
+.mobs-title {
+  text-align: center;
+}
+
+.mobs-content {
+  margin-left: 300px;
+}
+
+hr.mobs-content {
+    margin-right: 500px;
 }
 
 .home {
@@ -24,6 +56,6 @@ body {
   border-color: green;
 }
 
-img:hover {
+a:hover {
   opacity: 0.5;
 }
