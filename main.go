@@ -42,12 +42,18 @@ func main() {
 	http.HandleFunc("/Villager/", Villager)
 
 	// Hostile Mobs
+	http.HandleFunc("/Blaze/",Blaze)
   http.HandleFunc("/Creeper/",Creeper)
+	http.HandleFunc("/Ghast/",Ghast)
+	http.HandleFunc("/MagmaCube/",MagmaCube)
+	http.HandleFunc("/Skeleton/",Skeleton)
+	http.HandleFunc("/Slime/",Slime)
+	http.HandleFunc("/Zombie/",Zombie)
 
   log.Fatal(http.ListenAndServe(getPort(), nil))
 }
 
-// Render the template to the view 
+// Render the template to the view
 func renderTemplate(w http.ResponseWriter, tmpl string, p Page, check int) {
 	if check == 1 {
 		err := passive_templates.ExecuteTemplate(w, tmpl+".html", p)
@@ -120,10 +126,58 @@ func Villager(w http.ResponseWriter, r *http.Request)  {
 
 // Hostile Mob Templates
 
+func Blaze(w http.ResponseWriter, r *http.Request)  {
+  p := Page{
+		Title: "Mobs: Blaze",
+    Mob: "Blaze",
+  }
+  renderTemplate(w, "blaze", p, 2)
+}
+
 func Creeper(w http.ResponseWriter, r *http.Request)  {
   p := Page{
 		Title: "Mobs: Creeper",
     Mob: "Creeper",
   }
   renderTemplate(w, "creeper", p, 2)
+}
+
+func Ghast(w http.ResponseWriter, r *http.Request)  {
+  p := Page{
+		Title: "Mobs: Ghast",
+    Mob: "Ghast",
+  }
+  renderTemplate(w, "ghast", p, 2)
+}
+
+func MagmaCube(w http.ResponseWriter, r *http.Request)  {
+  p := Page{
+		Title: "Mobs: Magma Cube",
+    Mob: "Magma Cube",
+  }
+  renderTemplate(w, "magmacube", p, 2)
+}
+
+func Skeleton(w http.ResponseWriter, r *http.Request)  {
+  p := Page{
+		Title: "Mobs: Skeleton",
+    Mob: "Skeleton",
+  }
+  renderTemplate(w, "skeleton", p, 2)
+}
+
+func Slime(w http.ResponseWriter, r *http.Request)  {
+  p := Page{
+		Title: "Mobs: Slime",
+    Mob: "Slime",
+  }
+  renderTemplate(w, "slime", p, 2)
+}
+
+func Zombie(w http.ResponseWriter, r *http.Request)  {
+  p := Page{
+		Title: "Mobs: Zombie",
+    Mob: "Zombie",
+  }
+  renderTemplate(w, "zombie", p, 2)
 }

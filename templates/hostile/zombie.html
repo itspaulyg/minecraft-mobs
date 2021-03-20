@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <link rel="stylesheet" type="text/css" href="/css/main.css">
+  <meta charset="utf-8">
+  <title>{{.Title}}</title>
+</head>
+
+<body>
+  <div class="header">
+    <header>
+      <a href="/">
+        <img src="/images/minecraft_logo.jpg" alt="Minecraft Mobs Home" class="home">
+      </a>
+    </header>
+  </div>
+
+  <div class="mobs-solo">
+    <div class="mobs-title">
+      <h1>{{.Mob}}</h1>
+      <img src="/images/Zombie.png" alt="Minecraft Zombie" class="creatures">
+      <h3>HitPoints:
+        <p style="display:inline">20 (
+          <img src="/images/Heart.png" alt="HitPoints">
+          x 10)
+        </p>
+      </h3>
+    </div>
+    <div class="mobs-content">
+      <h3>Spawn</h3>
+      <hr>
+      <ul>
+        <li>Zombies spawn in the overworld in up to groups of 4.</li>
+        <li>Spawns with a light level of 7 or less</li>
+        <li>Zombies exposed to the sky in deserts have a 70-80% chance become <a href=/Husk/>husks</a>.</li>
+        <li>5% chance to spawn as a <a href=/ZombieVillager/>zombie villager</a> or baby zombie.</li>
+        <li>Baby zombies have a 5% chance of spawning as a <a href=/ChickenJockey/>chicken jockey</a>.</li>
+      </ul>
+      <h3>Drops</h3>
+      <hr>
+      <ul>
+        <li>5 exp if killed by player or tamed wolf</li>
+        <li>0-2 rotten flesh (up to 5 with Looting)</li>
+        <li>1 iron ingot</li>
+        <li>1 carrot</li>
+        <li>1 potato</li>
+        <li>Gear/tools they spawn with, or have picked up</li>
+        <li>Pumpkin if worn during Halloween</li>
+      </ul>
+    </div>
+  </div>
+</body>
+
+</html>
