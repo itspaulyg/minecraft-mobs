@@ -50,12 +50,12 @@ hr.mobs-content {
   padding: 10px;
 }
 
-.pig {
+.creatures {
   border-width: medium;
   border-style: solid;
   border-color: green;
 }
 
 a:hover {
-  opacity: 0.5;
+  opacity: 0.7;
 }
