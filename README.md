@@ -1,6 +1,6 @@
 # minecraft-mobs
 Minecraft Mob Wiki written in Go
-Our app is hosted [here]https://tranquil-taiga-90293.herokuapp.com/
+Our app is hosted [here](https://tranquil-taiga-90293.herokuapp.com/)
 
 ## Background
 This project is designed to take a step back from all the common programming languages we have learned about and explore a non-traditional programming language. We choose Go as ours and will implement a basic web application that will be hosted on Heroku, so as to utilize the Cloud.
