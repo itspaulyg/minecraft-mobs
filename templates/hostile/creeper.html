@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <link rel="stylesheet" type="text/css" href="/css/main.css">
+  <meta charset="utf-8">
+  <title>{{.Title}}</title>
+</head>
+
+<body>
+  <div class="header">
+    <header>
+      <a href="/">
+        <img src="/images/minecraft_logo.jpg" alt="Minecraft Mobs Home" class="home">
+      </a>
+    </header>
+  </div>
+
+  <div class="mobs-solo">
+    <div class="mobs-title">
+      <h1>{{.Mob}}</h1>
+      <img src="/images/Creeper.png" alt="Minecraft Creeper" class="creatures">
+      <h3>HitPoints:
+        <p style="display:inline">20 (
+          <img src="/images/Heart.png" alt="HitPoints">
+          x 10)
+        </p>
+      </h3>
+    </div>
+    <div class="mobs-content">
+      <h3>Spawn</h3>
+      <hr>
+      <ul>
+        <li>Creepers spawn in the Overworld on solid blocks</li>
+        <li>Spawn with a light level of 7 or less</li>
+      </ul>
+      <h3>Drops</h3>
+      <hr>
+      <ul>
+        <li>5 exp if killed by player or tamed wolf</li>
+        <li>0-2 gunpowder (up to 5 with Looting)</li>
+        <li>1 random music disc (excluding Pigstep), if killed by a Skeleton</li>
+        <li>1 creeper head if killed by a charged creeper</li>
+      </ul>
+    </div>
+  </div>
+</body>
+
+</html>
