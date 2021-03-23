@@ -11,4 +11,6 @@ We are developing a Mob Wiki for the classic game Minecraft. This wiki will show
 
 - [Getting Started with Golang on Heroku](https://devcenter.heroku.com/articles/getting-started-with-go)
 
+- [Setting Up App for Heroku](https://elements.heroku.com/buildpacks/heroku/heroku-buildpack-go)
+
 - [Deploying Own App to Heroku](https://devcenter.heroku.com/articles/preparing-a-codebase-for-heroku-deployment)
