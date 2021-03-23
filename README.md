@@ -14,3 +14,18 @@ We are developing a Mob Wiki for the classic game Minecraft. This wiki will show
 - [Setting Up App for Heroku](https://elements.heroku.com/buildpacks/heroku/heroku-buildpack-go)
 
 - [Deploying Own App to Heroku](https://devcenter.heroku.com/articles/preparing-a-codebase-for-heroku-deployment)
+
+## Developer Notes
+
+### Deploying to Heroku
+Since our Github codebase is not directly linked with Heroku, Heroku and Github contains two different copies of the project.
+
+In order to update to Heroku, you must first connect to Heroku remote like this:
+
+>`git remote: -a tranquil-taiga-90293`
+
+Then everytime you'd like to push, you can:
+
+>`git push heroku`
+
+The code on the main branch will be automatically deployed.
