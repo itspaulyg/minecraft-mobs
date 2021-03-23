@@ -6,7 +6,7 @@
       "hitPoints":  4,
       "spawn": [
         "Chickens spawn naturally in the overworld.",
-        "Chickens are require two blocks of free space above them.",
+        "Chickens require two blocks of free space above them.",
         "Chickens are more common in jungle biomes.",
         "After world generation chickens spawn individually.",
         "5% of chickens spawn as babies.",
@@ -24,23 +24,61 @@
     {
       "name": "cow",
       "type": "passive",
-      "hitPoints": 0,
-      "spawn": [""],
-      "drops": [""]
+      "hitPoints": 10,
+      "spawn": [
+        "Cows spawn naturally in the overworld.",
+        "Cow spawn in herds of 2 to 3.",
+        "Cows require grassblocks and a light level of 9 or higher.",
+        "Cows require at least 2 blocks of space above.",
+        "A singular cow spawns inside fowl runs and butchers' houses in villagers.",
+        "After world generation, cows spawn individually.",
+        "Shearing a mooshroom \"spawns\" a cow.",
+        "5% of cows spawn as calves."
+      ],
+      "drops": [
+        "0-2 leather. The maximum is increased by 1 per level of Looting.",
+        "1-3 raw beef (steak if killed while on fire). The maximum is increased by 1 per level of Looting",
+        "1-3 experience when killed by a player or tamed wolf.",
+        "Killing a baby cow yields no items nor experience."
+      ]
     },
     {
       "name": "pig",
       "type": "passive",
       "hitPoints": 0,
-      "spawn": [""],
-      "drops": [""]
+      "spawn": [
+        "Pigs spawn in groups of 1-4.",
+        "Spawn on grassy blocks in lit areas (level >= 7).",
+        "They can also be found in villages.",
+        "5% of pigs spawn as piglets."
+      ],
+      "drops": [
+        "1-3 raw porkchop (or cooked if killed while on fire).",
+        "1 saddle if saddled.",
+        "1-3 exp if killed by a player or tamed wolf.",
+        "Killing a baby pig yields no items nor exp.",
+        "Porkchop drops are increased by 1 per level of Looting."
+      ]
     },
     {
       "name": "sheep",
       "type": "passive",
       "hitPoints": 0,
-      "spawn": [""],
-      "drops": [""]
+      "spawn": [
+        "95% of sheep that spawn are adults and 5% are babies.",
+        "81.836% of sheep spawn white. There is a 5% chance that a sheep spawns light gray, gray, or black.",
+        "3% of sheep spawns are brown and pinks are rare with a 0.164%. So a pink baby sheep is pretty much a unicorn.",
+        "Sheep spawn in 2s or 3s on grass blocks at the surface during world generation.",
+        "Sheep spawn at light level of 7 or higher with 2 block spaces above.",
+        "Sheep do not spawn in snowy tundras and wooded badlands plateaus during world generation.",
+        "2 sheep may spawn in shepherd houses, butcher houses, and animal pens in villages."
+      ],
+      "drops": [
+        "1 wool of corresponding color if the sheep has wool.",
+        "1-2 raw mutton (cooked mutton if killed while on fire). Maximum amount is increased by 1 per level of looting.",
+        "1-3 experience if killed by player or a wolf.",
+        "Shearing gives 1-3 wool."
+      ]
     },
     {
       "name": "villager",

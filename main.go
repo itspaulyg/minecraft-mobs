@@ -19,7 +19,6 @@ type PageProps struct {
 }
 
 // Keep track of html files
-// var templates = template.Must(template.ParseGlob("templates/*.html"))
 var templates = template.Must(template.New("main").Funcs(template.FuncMap{
 	"makeFilename": func(mob string) string {
 		return strings.ReplaceAll(strings.ToLower(mob), " ", "-")
