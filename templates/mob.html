@@ -11,7 +11,7 @@
   <div class="header">
     <header>
       <a href="/">
-        <img src="/images/minecraft_logo.jpg" alt="Minecraft Mobs Home" class="home">
+        <img src="/images/minecraft-logo.jpg" alt="Minecraft Mobs Home" class="home">
       </a>
     </header>
   </div>
@@ -21,8 +21,16 @@
       <h1>{{.Mob}}</h1>
       <!-- <img src="/images/Chicken.png" alt="Minecraft Chicken" class="creatures"> -->
       <img src="/images/{{makeFilename .Mob}}.png" alt="Minecraft {{.Mob}}" class="creatures">
-      <h3>HitPoints: {{.Content.HitPoints}} (
-        <img src="/images/heart.png" alt="HitPoints">
+      <h3>
+        HitPoints: {{.Content.HitPoints}} (
+          {{if gt .Content.HitPoints 10}}
+            {{half .Content.HitPoints}} x <img src="/images/heart.png" alt="HitPoints">
+          {{else}}
+            {{$hp := hearts .Content.HitPoints}}
+            {{range $hp}}
+              <img src="/images/heart.png" alt="HitPoints">
+            {{end}}
+          {{end}}
         )
       </h3>
     </div>

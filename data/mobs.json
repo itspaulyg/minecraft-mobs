@@ -45,7 +45,7 @@
     {
       "name": "pig",
       "type": "passive",
-      "hitPoints": 0,
+      "hitPoints": 10,
       "spawn": [
         "Pigs spawn in groups of 1-4.",
         "Spawn on grassy blocks in lit areas (level >= 7).",
@@ -63,7 +63,7 @@
     {
       "name": "sheep",
       "type": "passive",
-      "hitPoints": 0,
+      "hitPoints": 8,
       "spawn": [
         "95% of sheep that spawn are adults and 5% are babies.",
         "81.836% of sheep spawn white. There is a 5% chance that a sheep spawns light gray, gray, or black.",

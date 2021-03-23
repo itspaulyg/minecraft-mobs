@@ -23,6 +23,13 @@ var templates = template.Must(template.New("main").Funcs(template.FuncMap{
 	"makeFilename": func(mob string) string {
 		return strings.ReplaceAll(strings.ToLower(mob), " ", "-")
 	},
+	"half": func(hp int) int {
+		return hp/2
+	},
+	"hearts": func(hp int) []int {
+		hearts := make([]int, hp/2)
+		return hearts
+	},
 }).ParseGlob("templates/*.html"))
 
 // Get port either local or heroku hosted
