@@ -23,6 +23,7 @@ General development should look like: Local -> Heroku Deployment -> Git Push to 
 ### Local Development
 To test your code, you run the following in the top most directory:
 >`go build main.go`
+
 >`./main`
 
 ### Adding new modules in Go
