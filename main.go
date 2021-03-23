@@ -6,26 +6,25 @@ import (
 	"net/http"
 	"os"
 	"strings"
+	
+	"github.com/itspaulyg/minecraft-mobs/content"
+	"github.com/itspaulyg/minecraft-mobs/model"
 )
 
 // Generic to each html page
-type Page struct {
-	Title string
-	Mob   string
+type PageProps struct {
+	Title   string
+	Mob     string
+	Content model.Content
 }
 
-type MobType int
-
-const (
-	Unknown = iota
-	Passive
-	Hostile
-)
-
 // Keep track of html files
-var templates = template.Must(template.ParseGlob("templates/*.html"))
-var passive_templates = template.Must(template.ParseGlob("templates/passive/*.html"))
-var hostile_templates = template.Must(template.ParseGlob("templates/hostile/*.html"))
+// var templates = template.Must(template.ParseGlob("templates/*.html"))
+var templates = template.Must(template.New("main").Funcs(template.FuncMap{
+	"makeFilename": func(mob string) string {
+		return strings.ReplaceAll(strings.ToLower(mob), " ", "-")
+	},
+}).ParseGlob("templates/*.html"))
 
 // Get port either local or heroku hosted
 func getPort() string {
@@ -41,71 +40,53 @@ func main() {
 	http.Handle("/images/", http.StripPrefix("/images/", http.FileServer(http.Dir("images"))))
 
 	// Home
-	http.HandleFunc("/", Home)
+	http.HandleFunc("/", home)
 
 	// Passive Mobs
-	passiveMobs := []string{
-		"chicken",
-		"cow",
-		"pig",
-		"sheep",
-		"villager",
-	}
-	for _, mob := range passiveMobs {
-		http.HandleFunc("/"+strings.ReplaceAll(mob, " ", "-")+"/", mobHandler(mob, Passive))
+	for _, mob := range content.PassiveMobs {
+		http.HandleFunc("/"+strings.ReplaceAll(mob, " ", "-")+"/", mobHandler(mob))
 	}
 
 	// Hostile Mobs
-	hostileMobs := []string{
-		"blaze",
-		"creeper",
-		"ghast",
-		"magma cube",
-		"skeleton",
-		"slime",
-		"zombie",
-	}
-	for _, mob := range hostileMobs {
-		http.HandleFunc("/"+strings.ReplaceAll(mob, " ", "-")+"/", mobHandler(mob, Hostile))
+	for _, mob := range content.HostileMobs {
+		http.HandleFunc("/"+strings.ReplaceAll(mob, " ", "-")+"/", mobHandler(mob))
 	}
 
 	log.Fatal(http.ListenAndServe(getPort(), nil))
 }
 
 // Render the template to the view
-func renderTemplate(w http.ResponseWriter, tmpl string, p Page, check int) {
-	if check == 1 {
-		err := passive_templates.ExecuteTemplate(w, tmpl+".html", p)
+func renderTemplate(w http.ResponseWriter, p PageProps, check int) {
+	if check == 0 {
+		err := templates.ExecuteTemplate(w, "index.html", p)
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 		}
-	} else if check == 2 {
-		err := hostile_templates.ExecuteTemplate(w, tmpl+".html", p)
+	} else if check == 1 {
+		err := templates.ExecuteTemplate(w, "mob.html", p)
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 		}
-	} else {
-		err := templates.ExecuteTemplate(w, tmpl+".html", p)
-		if err != nil {
-			http.Error(w, err.Error(), http.StatusInternalServerError)
-		}
-	}
-}
-
-func mobHandler(mob string, mobType MobType) http.HandlerFunc {
-	return func(w http.ResponseWriter, _ *http.Request) {
-		p := Page{
-			Title: "Mobs: " + strings.Title(mob),
-			Mob:   strings.Title(mob),
-		}
-		renderTemplate(w, strings.Join(strings.Fields(strings.ToLower(mob)), ""), p, int(mobType))
 	}
 }
 
 // Render Home Template
-func Home(w http.ResponseWriter, r *http.Request) {
-	p := Page{
+func home(w http.ResponseWriter, _ *http.Request) {
+	p := PageProps{
 		Title: "Minecraft Mobs",
 	}
-	renderTemplate(w, "index", p, 0)
+	renderTemplate(w, p, 0)
+}
+
+// Render Mob Template
+func mobHandler(mob string) http.HandlerFunc {
+	return func(w http.ResponseWriter, _ *http.Request) {
+		c := content.GetMobContent(mob)
+		p := PageProps{
+			Title: 		"Mobs: " + strings.Title(mob),
+			Mob:   		strings.Title(mob),
+			Content:	c,
+		}
+		renderTemplate(w, p, 1)
+	}
 }

@@ -1,0 +1,102 @@
+{
+  "mobs": [
+    {
+      "name": "chicken",
+      "type": "passive",
+      "hitPoints":  4,
+      "spawn": [
+        "Chickens spawn naturally in the overworld.",
+        "Chickens are require two blocks of free space above them.",
+        "Chickens are more common in jungle biomes.",
+        "After world generation chickens spawn individually.",
+        "5% of chickens spawn as babies.",
+        "Chickens require a light level of 7 or more and are found in groups of 2 to 4."
+      ],
+      "drops": [
+        "0-2 feathers. The maximum is increased by 1 per level of Looting.",
+        "1 raw chicken (1 cooked chicken if killed while on fire). The maximum is increased by 1 per level of Looting.",
+        "1-3 exp when killed by a player of tamed wolf.",
+        "Chickens lay 1 egg every 5 to 10 minutes.",
+        "When they breed they drop 1-7 exp.",
+        "Killing a baby chicken yields no items or exp."
+      ]
+    },
+    {
+      "name": "cow",
+      "type": "passive",
+      "hitPoints": 0,
+      "spawn": [""],
+      "drops": [""]
+    },
+    {
+      "name": "pig",
+      "type": "passive",
+      "hitPoints": 0,
+      "spawn": [""],
+      "drops": [""]
+    },
+    {
+      "name": "sheep",
+      "type": "passive",
+      "hitPoints": 0,
+      "spawn": [""],
+      "drops": [""]
+    },
+    {
+      "name": "villager",
+      "type": "passive",
+      "hitPoints": 0,
+      "spawn": [""],
+      "drops": [""]
+    },
+    {
+      "name": "blaze",
+      "type": "hostile",
+      "hitPoints": 0,
+      "spawn": [""],
+      "drops": [""]
+    },
+    {
+      "name": "creeper",
+      "type": "hostile",
+      "hitPoints": 0,
+      "spawn": [""],
+      "drops": [""]
+    },
+    {
+      "name": "ghast",
+      "type": "hostile",
+      "hitPoints": 0,
+      "spawn": [""],
+      "drops": [""]
+    },
+    {
+      "name": "magma cube",
+      "type": "hostile",
+      "hitPoints": 0,
+      "spawn": [""],
+      "drops": [""]
+    },
+    {
+      "name": "skeleton",
+      "type": "hostile",
+      "hitPoints": 0,
+      "spawn": [""],
+      "drops": [""]
+    },
+    {
+      "name": "slime",
+      "type": "hostile",
+      "hitPoints": 0,
+      "spawn": [""],
+      "drops": [""]
+    },
+    {
+      "name": "zombie",
+      "type": "hostile",
+      "hitPoints": 0,
+      "spawn": [""],
+      "drops": [""]
+    }
+  ]
+}
