@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
-<head>
-  <link rel="stylesheet" type="text/css" href="/css/main.css">
-  <meta charset="utf-8">
-  <title>{{.Title}}</title>
-</head>
+  <head>
+    <meta charset="utf-8">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karla">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <title>{{.Title}}</title>
+  </head>
 
 <body>
-  <div class="header">
+  <div class="navbar">
     <header>
       <a href="/">
-        <img src="/images/minecraft-logo.jpg" alt="Minecraft Mobs Home" class="home">
+        <img src="/images/minecraft-textlogo.png" alt="Minecraft Mobs Home" class="home">
       </a>
     </header>
   </div>
@@ -19,10 +22,9 @@
   <div class="mobs-solo">
     <div class="mobs-title">
       <h1>{{.Mob}}</h1>
-      <!-- <img src="/images/Chicken.png" alt="Minecraft Chicken" class="creatures"> -->
       <img src="/images/{{makeFilename .Mob}}.png" alt="Minecraft {{.Mob}}" class="creatures">
       <h3>
-        HitPoints: {{.Content.HitPoints}} (
+        Hit Points: {{.Content.HitPoints}} (
         {{if gt .Content.HitPoints 10}}
         {{half .Content.HitPoints}} x <img src="/images/heart.png" alt="HitPoints">
         {{else}}

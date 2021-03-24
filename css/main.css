@@ -1,35 +1,76 @@
+html {
+  background: url("/images/minecraft-bground.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 
 header {
-  background-color: #743a00aa;
-  justify-content: flex-start;
+  margin: 0;
 }
 
 body {
-  background-color: #cccccc;
-  background-image:url("/images/minecraft-bground.jpg");
-  font-family: sans-serif;
+  margin: 0;
+  font-family: "Lato", sans-serif;
+}
+
+h1 {
+  font-family: "Karla", sans-serif;
+  font-size: 2.2em;
+  margin-bottom: 0.3em;
+}
+h2 {
+  font-family: "Karla", sans-serif;
+  font-size: 1.7em;
+  margin-bottom: 0.3em;
+}
+h3 {
+  font-family: "Karla", sans-serif;
+  font-size: 1.3em;
+  margin-bottom: 0.3em;
+}
+h4 {
+  font-family: "Karla", sans-serif;
+  margin-bottom: 0.2em;
 }
 
 li {
   list-style: square;
 }
 
+.navbar {
+  background-color: #7171717d;
+  height: 100px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
 .mobs {
+  background-color: #ffffffe4;
+  margin: 25px auto 25px auto;
   padding: 25px;
   text-align: center;
   justify-content: center;
-  background-color: #cccccc;
-  width: 1000px;
-  height: 800px;
-  margin: auto;
+  width: 80%;
+  min-height: 800px;
+  border-radius: 0.5em;
+}
+
+.nav img {
+  height: 64px;
+  width: 64px;
+  padding: 5px;
 }
 
 .mobs-solo {
+  background-color: #ffffffe4;
+  margin: 25px auto 25px auto;
   padding: 25px;
-  background-color: #cccccc;
-  width: 1000px;
-  height: 900px;
-  margin: auto;
+  width: 80%;
+  min-height: 800px;
+  border-radius: 0.5em;
 }
 
 .mobs-title {
@@ -37,25 +78,29 @@ li {
 }
 
 .mobs-content {
-  margin-left: 300px;
-}
-
-hr.mobs-content {
-    margin-right: 500px;
+  margin: 25px auto 25px auto;
 }
 
 .home {
-  height: 100px;
-  width: 100px;
+  height: 3em;
+  width: auto;
   padding: 10px;
 }
 
 .creatures {
+  padding: 5px;
   border-width: medium;
   border-style: solid;
   border-color: green;
+  border-radius: 0.5em;
+  height: 200px;
+  width: auto;
+}
+
+a {
+  text-decoration: none;
 }
 
 a:hover {
-  opacity: 0.7;
+  opacity: 0.8;
 }
