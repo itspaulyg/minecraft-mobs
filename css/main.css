@@ -7,6 +7,7 @@ header {
 body {
   background-color: #cccccc;
   background-image:url("/images/minecraft-bground.jpg");
+  background-repeat: round;
   font-family: sans-serif;
 }
 
@@ -28,7 +29,7 @@ li {
   padding: 25px;
   background-color: #cccccc;
   width: 1000px;
-  height: 900px;
+  height: 1000px;
   margin: auto;
 }
 
