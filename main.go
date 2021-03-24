@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"os"
 	"strings"
+	"time"
 	
 	"github.com/itspaulyg/minecraft-mobs/content"
 	"github.com/itspaulyg/minecraft-mobs/model"
@@ -16,6 +17,7 @@ type PageProps struct {
 	Title   string
 	Mob     string
 	Content model.Content
+	Year	string
 }
 
 // Keep track of html files
@@ -78,8 +80,11 @@ func renderTemplate(w http.ResponseWriter, p PageProps, check int) {
 
 // Render Home Template
 func home(w http.ResponseWriter, _ *http.Request) {
+	currentTime := time.Now()
+	currentYear := currentTime.Format("2006")
 	p := PageProps{
-		Title: "Minecraft Mobs",
+		Title:	"Minecraft Mobs",
+		Year: 	currentYear,
 	}
 	renderTemplate(w, p, 0)
 }
@@ -87,11 +92,15 @@ func home(w http.ResponseWriter, _ *http.Request) {
 // Render Mob Template
 func mobHandler(mob string) http.HandlerFunc {
 	return func(w http.ResponseWriter, _ *http.Request) {
+		currentTime := time.Now()
+		currentYear := currentTime.Format("2006")
+		
 		c := content.GetMobContent(mob)
 		p := PageProps{
 			Title: 		"Mobs: " + strings.Title(mob),
 			Mob:   		strings.Title(mob),
 			Content:	c,
+			Year:		currentYear,
 		}
 		renderTemplate(w, p, 1)
 	}

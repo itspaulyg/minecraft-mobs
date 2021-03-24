@@ -10,6 +10,19 @@ header {
   margin: 0;
 }
 
+footer {
+  bottom: 0;
+  right: 0;
+  padding: 0px 10px 5px 0px;
+  text-align: center;
+  z-index: -100;
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.8em;
+}
+
 body {
   margin: 0;
   font-family: "Lato", sans-serif;
@@ -40,16 +53,20 @@ li {
 }
 
 .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
   background-color: #7171717d;
   height: 100px;
   width: 100%;
   display: flex;
   align-items: center;
+  z-index: 100;
 }
 
 .mobs {
   background-color: #ffffffe4;
-  margin: 25px auto 25px auto;
+  margin: 125px auto 25px auto;
   padding: 25px;
   text-align: center;
   justify-content: center;
@@ -66,7 +83,7 @@ li {
 
 .mobs-solo {
   background-color: #ffffffe4;
-  margin: 25px auto 25px auto;
+  margin: 125px auto 25px auto;
   padding: 25px;
   width: 80%;
   min-height: 800px;
