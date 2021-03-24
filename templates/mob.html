@@ -23,15 +23,15 @@
       <img src="/images/{{makeFilename .Mob}}.png" alt="Minecraft {{.Mob}}" class="creatures">
       <h3>
         HitPoints: {{.Content.HitPoints}} (
-          {{if gt .Content.HitPoints 10}}
-            {{half .Content.HitPoints}} x <img src="/images/heart.png" alt="HitPoints">
-          {{else}}
-            {{$hp := hearts .Content.HitPoints}}
-            {{range $hp}}
-              <img src="/images/heart.png" alt="HitPoints">
-            {{end}}
+        {{if gt .Content.HitPoints 10}}
+        {{half .Content.HitPoints}} x <img src="/images/heart.png" alt="HitPoints">
+        {{else}}
+          {{$hp := hearts .Content.HitPoints}}
+          {{range $hp}}
+          <img src="/images/heart.png" alt="HitPoints">
           {{end}}
-        )
+          {{end}}
+          )
       </h3>
     </div>
     <div class="mobs-content">
@@ -39,14 +39,21 @@
       <hr>
       <ul>
         {{range .Content.Spawn}}
-          <li>{{.}}</li>
+        <li>{{.}}</li>
         {{end}}
       </ul>
       <h3>Drops</h3>
       <hr>
       <ul>
         {{range .Content.Drops}}
-          <li>{{.}}</li>
+        <li>{{.}}</li>
+        {{end}}
+      </ul>
+      <h3>Behavior</h3>
+      <hr>
+      <ul>
+        {{range .Content.Behavior}}
+        <li>{{.}}</li>
         {{end}}
       </ul>
     </div>

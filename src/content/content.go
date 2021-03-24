@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"encoding/json"
 	"io/ioutil"
-	
+
 	"github.com/itspaulyg/minecraft-mobs/model"
 )
 
-type Mobs struct { 
+type Mobs struct {
 	Mobs []Mob `json:"mobs"`
 }
 
@@ -18,6 +18,7 @@ type Mob struct {
 	HitPoints 	int			`json:"hitPoints"`
 	Spawn		[]string	`json:"spawn"`
 	Drops		[]string	`json:"drops"`
+	Behavior []string `json:"behavior"`
 }
 
 var PassiveMobs = []string{}
@@ -55,11 +56,14 @@ func GetMobContent(mobName string) model.Content {
 			copy(spawn, m.Spawn)
 			drops := make([]string, len(m.Drops))
 			copy(drops, m.Drops)
+			behavior := make([]string, len(m.Behavior))
+			copy(behavior, m.Behavior)
 
 			c = model.Content{
 				HitPoints:	hitPoints,
 				Spawn:		spawn,
 				Drops:		drops,
+				Behavior: behavior,
 			}
 		}
 	}

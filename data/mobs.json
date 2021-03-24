@@ -6,9 +6,7 @@
       "hitPoints":  4,
       "spawn": [
         "Chickens spawn naturally in the overworld.",
-        "Chickens require two blocks of free space above them.",
         "Chickens are more common in jungle biomes.",
-        "After world generation chickens spawn individually.",
         "5% of chickens spawn as babies.",
         "Chickens require a light level of 7 or more and are found in groups of 2 to 4."
       ],
@@ -19,6 +17,16 @@
         "Chickens lay 1 egg every 5 to 10 minutes.",
         "When they breed they drop 1-7 exp.",
         "Killing a baby chicken yields no items or exp."
+      ],
+      "behavior": [
+        "Chickens actively run around and chicks follow adults.",
+        "When falling they flap their wings and fall slowly; they are immune to fall damage.",
+        "When attacked or harmed they flee.",
+        "Chickens uniquely attempt to jump up to climb stairs instead of climbing them normally.",
+        "Chickens follow players holding various seeds.",
+        "A chicken lays an egg every 5-10 minutes for loaded chunks.",
+        "If two adult chickens are fed wheat seeds, beetroot seeds, melon seeds or pumpkin seeds, a baby spawns.",
+        "When throwing eggs at the ground, there's a 1 in 8 chance to spawn a chick."
       ]
     },
     {
@@ -40,6 +48,60 @@
         "1-3 raw beef (steak if killed while on fire). The maximum is increased by 1 per level of Looting",
         "1-3 experience when killed by a player or tamed wolf.",
         "Killing a baby cow yields no items nor experience."
+      ],
+      "behavior": [
+        "Cows wander around, mooing occasionally.",
+        "Cows can be milked by using a bucket on it, yielding a milk bucket.",
+        "Baby cows follow adult cows.",
+        "A cow follows a player who holds wheat. Two adult cows given wheat enter love mode and create calves."
+      ]
+    },
+    {
+      "name": "horse",
+      "type": "passive",
+      "hitPoints": 15,
+      "spawn": [
+        "Horses spawn in plains and savannas in herds of 2-6.",
+        "All combinations of color and markings are equally likely.",
+        "All members of the herd have the same color, but markings may vary.",
+        "20% of individual horses spawn as foals.",
+        "Villages can generate naturally with stables and pens containing horses."
+      ],
+      "drops": [
+        "0-2 Leather. The maximum amount is increased by 1 per level of Looting.",
+        "1-3 exp when killed by a player or tamed wolf.",
+        "Horse armor if the horse was already equipped with it.",
+        "Saddle if the horse was already equipped with it."
+      ],
+      "behavior": [
+        "Horses wander aimlessly, occasionally eating or flicking their tails.",
+        "Any horse can be attached to a lead without protest.",
+        "Horses remain passive even when hit. They slowly regenerate health.",
+        "You must tame a horse in order to breed it, control it, and give it equipment.",
+        "A player tames an adult horse by repeatedly mounting it until the horse stops bucking them off.",
+        "Feeding two tamed horses golden apples or golden carrots activates love mode, causing them to mate and produce a foal."
+      ]
+    },
+    {
+      "name": "mooshroom",
+      "type": "passive",
+      "hitPoints": 10,
+      "spawn": [
+        "Mooshrooms are mushroom-covered variants of cows exclusive to mushroom-fields biome.",
+        "Red mooshrooms can spawn in herds of 4-8 when the light level is 9 or higher and on Mycelium.",
+        "Mooshrooms do not naturally spawn in any other biome and brown mooshrooms never spawn naturally."
+      ],
+      "drops": [
+        "0-2 leather. The maximum amount is increased by 1 per level of Looting.",
+        "1-3 Raw Beef (Steak if killed while on fire). The maximum amount is increased by 1 per level of Looting.",
+        "1-3 exp when killed by a player or tamed wolf.",
+        "Shearing a mooshroom drops 5 corresponding mushrooms and turns the mooshroom into a normal cow indefinitely.",
+        "Using a bucket on a mooshroom will yield a milk bucket. Using a bowl will yield mushroom stew."
+      ],
+      "behavior": [
+        "Mooshrooms walk around slowly and aimlessly, avoiding danger such as cliffs, fire or lava.",
+        "A mooshroom follows a player holding wheat.",
+        "A red mooshroom transforms into a brown mooshroom (and vice versa) when it is struck by lightning."
       ]
     },
     {
@@ -58,6 +120,13 @@
         "1-3 exp if killed by a player or tamed wolf.",
         "Killing a baby pig yields no items nor exp.",
         "Porkchop drops are increased by 1 per level of Looting."
+      ],
+      "behavior": [
+        "Pigs oink and roam around avoiding hazards.",
+        "Pigs flee when attacked or harmed.",
+        "When a pig is struck by lightning it transforms into a zombified piglin.",
+        "Pigs follow players and breed using carrots, potatoes, and beetroots.",
+        "Saddled pigs are controllable with a carrot on a stick."
       ]
     },
     {
@@ -65,9 +134,8 @@
       "type": "passive",
       "hitPoints": 8,
       "spawn": [
-        "95% of sheep that spawn are adults and 5% are babies.",
         "81.836% of sheep spawn white. There is a 5% chance that a sheep spawns light gray, gray, or black.",
-        "3% of sheep spawns are brown and pinks are rare with a 0.164%. So a pink baby sheep is pretty much a unicorn.",
+        "3% of sheep spawns are brown and pinks are rare with a 0.164%",
         "Sheep spawn in 2s or 3s on grass blocks at the surface during world generation.",
         "Sheep spawn at light level of 7 or higher with 2 block spaces above.",
         "Sheep do not spawn in snowy tundras and wooded badlands plateaus during world generation.",
@@ -78,63 +146,160 @@
         "1-2 raw mutton (cooked mutton if killed while on fire). Maximum amount is increased by 1 per level of looting.",
         "1-3 experience if killed by player or a wolf.",
         "Shearing gives 1-3 wool."
+      ],
+      "behavior": [
+        "Sheep wander aimlessly in small flocks of about 2-4, yet it is not uncommon to see lonely sheep.",
+        "Sheep avoid hazards and cliffs that cause damage. If harmed sheep flee for a few seconds.",
+        "When a sheared sheep eats a grass block, its wool grows back. The chance of eating grass is 1 in 1000 per game tick.",
+        "Sheep will follow a player holding wheat.",
+        "You can dye a sheep's wool by pressing the use key while holding any dye."
+      ]
+    },
+    {
+      "name": "snowgolem",
+      "type": "passive",
+      "hitPoints": 4,
+      "spawn": [
+        "Snow golems do not spawn but rather are created.",
+        "To create a snow golem, the player must stack two snow blocks followed by a pumpkin.",
+        "The building pattern will also work if placed sideways or upside-down.",
+        "Endermen are capable of creating snow golems by placing the necessary blocks, but this is extremely rare."
+      ],
+      "drops": [
+        "Snow golems drop 0-15 snowballs on death."
+      ],
+      "behavior": [
+        "Snow golems do not follow players. They have their own path-finding skills.",
+        "Snow golems avoid cacti, fire, lava, and water. They avoid cliffs even though they are immune to fall damage.",
+        "Snow golems melt in biomes with a temperature greater than 1.0 i.e. deserts, the Nether.",
+        "Shearing a snow golem removes the pumpkin, revealing its face.",
+        "Snow golems will melt in rain and water, and will take freezing damage from powder snow.",
+        "Snow golems move toward hostile mobs and throw snowballs at them knocking them back.",
+        "As snow golems move, they leave a trail of snow on the ground (only in biomes having a temperature less than 0.81)"
+      ]
+    },
+    {
+      "name": "squid",
+      "type": "passive",
+      "hitPoints": 10,
+      "spawn": [
+        "2-4 squid can spawn in water, as long as the biome is a river or ocean biome and the Y-level is between 46-63.",
+        "Squid spawn only on the surface so there must not be a solid block above the spawn location."
+      ],
+      "drops": [
+        "1-3 Ink Sacs. The maximum amount is increased by 1 per level of Looting.",
+        "1-3 exp when killed by a player or tamed wolf.",
+        "Killing a baby squid yields no items and no exp."
+      ],
+      "behavior": [
+        "Squid are passive toward the player and do not interact with the player.",
+        "When a squid moves it tentacles open and close giving it an appearance of pushing itself forward.",
+        "Squid suffocate when out of water, dying after 300 game ticks (15 seconds).",
+        "Squid remain stationary on land. They behave in lava the same as they do on land.",
+        "Squid produce a cloud of black ink particles and swim away when attacked."
+      ]
+    },
+    {
+      "name": "turtle",
+      "type": "passive",
+      "hitPoints": 30,
+      "spawn": [
+        "Turtles spawn on the sand on beaches with daylight in small groups of up to 5.",
+        "10% of turtles spawned are babies.",
+        "Turtles spawn at light levels greater than 8 and below 4 blocks above sea level (about 62), on the sand."
+      ],
+      "drops": [
+        "0-2 Seagrass. The maximum amount is increased by 1 per level of Looting.",
+        "1-3 exp if killed by a player or tamed wolf.",
+        "1 Bowl if killed by lightning.",
+        "Baby turtles do not drop anything when they die.",
+        "When a baby turtle grows up to an adult it drops 1 Scute."
+      ],
+      "behavior": [
+        "Turtles can move both on land and swim in water. They move slowly on land but can swim fast in water.",
+        "They move around aimlessly and flee when attacked. If attacked on land, they generally move toward the nearest water source.",
+        "When in an enclosed area they generally swim in circles.",
+        "Turtles cannot be attached to leads but can be led by a player holding seagrass.",
+        "Turtles remember the block they hatched on as their home beach so no matter how far away the turtle is, it will always try to return to its home beach to lay its eggs.",
+        "Feeding two turtles seagrass causes them to enter love mode, causing one of the turtles to have eggs.",
+        "Players can move turtle eggs with Silk Touch tools."
       ]
     },
     {
       "name": "villager",
       "type": "passive",
-      "hitPoints": 0,
-      "spawn": [""],
-      "drops": [""]
+      "hitPoints": 20,
+      "spawn": [
+        "Villagers can be found in villages which spawn in several biomes.",
+        "When a zombie villager is cured, it transforms into a villager."
+      ],
+      "drops": [
+        "Killing villagers does not drop any items or exp. When a villager holds an item to trade, that item is not dropped when killed.",
+        "Upon successful trading, 3-6 exp is dropped."
+      ],
+      "behavior": [
+        "They generally wander about the village, making mumbling sounds here and there.",
+        "Villagers run inside at night or during rain, closing the doors behind them.",
+        "Villagers flee and sprint away from hostile mobs or when attacked.",
+        "A villager is never prone to despawning.",
+        "Villagers can have jobs and trade with players for items and emeralds which can become quite valuable to players."
+      ]
     },
     {
       "name": "blaze",
       "type": "hostile",
       "hitPoints": 0,
       "spawn": [""],
-      "drops": [""]
+      "drops": [""],
+      "behavior": [""]
     },
     {
       "name": "creeper",
       "type": "hostile",
       "hitPoints": 0,
       "spawn": [""],
-      "drops": [""]
+      "drops": [""],
+      "behavior": [""]
     },
     {
       "name": "ghast",
       "type": "hostile",
       "hitPoints": 0,
       "spawn": [""],
-      "drops": [""]
+      "drops": [""],
+      "behavior": [""]
     },
     {
       "name": "magma cube",
       "type": "hostile",
       "hitPoints": 0,
       "spawn": [""],
-      "drops": [""]
+      "drops": [""],
+      "behavior": [""]
     },
     {
       "name": "skeleton",
       "type": "hostile",
       "hitPoints": 0,
       "spawn": [""],
-      "drops": [""]
+      "drops": [""],
+      "behavior": [""]
     },
     {
       "name": "slime",
       "type": "hostile",
       "hitPoints": 0,
       "spawn": [""],
-      "drops": [""]
+      "drops": [""],
+      "behavior": [""]
     },
     {
       "name": "zombie",
       "type": "hostile",
       "hitPoints": 0,
       "spawn": [""],
-      "drops": [""]
+      "drops": [""],
+      "behavior": [""]
     }
   ]
 }
