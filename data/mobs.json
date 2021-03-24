@@ -249,57 +249,230 @@
       "name": "blaze",
       "type": "hostile",
       "hitPoints": 0,
-      "spawn": [""],
-      "drops": [""],
-      "behavior": [""]
+      "spawn": [
+        "Blazes spawn in naturally nether fortresses at a light levels <= 11.",
+        "Blazes also spawn from Blaze spawners, found in nether fortresses."
+      ],
+      "drops": [
+        "0–1 blaze rods (up to 4 with Looting).",
+        "10 exp if killed by player or tamed wolf."
+      ],
+      "behavior": [
+        "Blazes target players within 48 blocks. Upon taking damage, it alerts other blazes within 48 blocks.",
+        "Blazes shoot three fireballs at a time, which ignites the player upon contact.",
+        "Contacting a player causes a melee attack to occur.",
+        "Blazes fly, or float down or stay on the ground when not attacking.",
+        "Blazes swim upward in lava or water. Blazes take damage from water but make no attempt to protect themselves from it once in it.",
+        "Their pathfinding avoids lava."
+      ]
     },
     {
       "name": "creeper",
       "type": "hostile",
-      "hitPoints": 0,
-      "spawn": [""],
-      "drops": [""],
-      "behavior": [""]
+      "hitPoints": 20,
+      "spawn": [
+        "Creepers naturally spawn in the Overworld on solid blocks with a light level <= 7.",
+        "Creepers are 1.7 blocks high, allowing them to spawn in 1.8125 block height."
+      ],
+      "drops": [
+        "5 exp when killed by player or tamed wolf",
+        "0–2 gunpowder (up to 5 with Looting)",
+        "1 music disc (excluding Pigstep), when killed by a skeleton/stray",
+        "1 creeper head, when killed by a charged creeper explosion"
+      ],
+      "behavior": [
+        "Creepers chase any player within a 16 block radius and 4 block height.",
+        "Detection is reduced by 50% when the player is wearing a creeper head",
+        "Creepers start to ignite when a player is in a 3 block radius and explodes after 1.5 seconds.",
+        "Using a flint and steel on a creeper forces an explosion.",
+        "When a creeper is inflicted with a potion effect, its explosion creates an area effect cloud of the effect.",
+        "Creepers flee from ocelots and cats within a 6 block radius.",
+        "Creepers struck by lightning turn into charged creepers"
+      ]
     },
     {
       "name": "ghast",
       "type": "hostile",
-      "hitPoints": 0,
-      "spawn": [""],
-      "drops": [""],
-      "behavior": [""]
+      "hitPoints": 10,
+      "spawn": [
+        "Ghasts require a solid block below them and a 5×4×5 space to spawn naturally.",
+        "Ghasts only spawn in the basalt deltas, nether wastes, at any light level.",
+        "In soul sand valleys, ghasts cannot spawn if another ghast is within 16 blocks of spherical distance to the intended spawning location.",
+        "Ghasts do not spawn in nether fortresses."
+      ],
+      "drops": [
+        "0-1 Ghast Tear. (up to 4 with Looting)",
+        "0-2 gunpowder. (up to 5 with Looting)",
+        "5 exp when killed by the player."
+      ],
+      "behavior": [
+        "Ghasts float around the Nether with their eyes and mouth closed and periodically make crying sounds.",
+        "Ghasts face the player and shoot a fireball every 3 seconds, opening their eyes and mouth and making a screeching sound.",
+        "They target players within 64 blocks horizontally and 4 blocks vertically.",
+        "Ghasts continue attacking until players break line of sight or exit a 64 block sphere of the ghast",
+        "Ghasts do not have a pursuit mode.",
+        "The ghast's fireball attack has a straight trajectory"
+      ]
     },
     {
       "name": "magma cube",
       "type": "hostile",
-      "hitPoints": 0,
-      "spawn": [""],
-      "drops": [""],
-      "behavior": [""]
+      "hitPoints": 16,
+      "spawn": [
+        "They are found in the Nether at all light levels.",
+        "They spawn in spaces clear of obstructions and liquids.",
+        "Only sizes 1, 2, and 4 spawn naturally."
+      ],
+      "drops": [
+        "Large magma cube: 0–1 magma cream and 4 experience",
+        "Small magma cube: 0–1 magma cream (0.25 average) and 2 experience",
+        "Tiny magma cube: 1 experience",
+        "Up to 1.21 magma cream per roll with Looting."
+      ],
+      "behavior": [
+        "A magma cube hops around to move.",
+        "A magma cube moves to any player or iron golem within a 16 blocks spherical distance",
+        "When a magma cube is killed, it splits into 2-4 smaller magma cubes. Tiny magma cubes disappear when killed.",
+        "When in lava, magma cubes hover and try to move to nearby land.",
+        "Magma cubes have no pathfinding ability.",
+        "Magma cubes attack by hopping and landing on the player, doing damage on contact."
+      ]
+    },
+    {
+      "name": "shulker",
+      "type": "hostile",
+      "hitPoints": 30,
+      "spawn": [
+        "Shulkers spawn a single time on the walls and end ships of end cities.",
+        "There is a chance that a new shulker will spawn when one hits another (or itself) with its bullet."
+      ],
+      "drops": [
+        "Shulkers have a 50% chance of dropping 1 shulker shell (up to 68.75% chance with Looting).",
+        "5 exp when killed by player or tamed wolf."
+      ],
+      "behavior": [
+        "Shulkers are passive on Peaceful difficulty.",
+        "Shulkers open their shell for 1–3 seconds. When a target comes within ~16 blocks, it opens and shoots homing projectiles.",
+        "Shulkers have armor and deflect arrows when closed.",
+        "When at less than half health, shulkers have a 25% chance of teleporting.",
+        "Their projectiles give 10 seconds of Levitation status effect.",
+        "They can be dyed like sheep."
+      ]
+    },
+    {
+      "name": "silverfish",
+      "type": "hostile",
+      "hitPoints": 8,
+      "spawn": [
+        "Silverfish spawn from broken infested blocks, generated in strongholds, igloo basements, woodland mansion portal rooms, and mountains.",
+        "Silverfish do not appear if the block is broken with Silk Touch.",
+        "From spawners, they can spawn only in light level <= 11.",
+        "They cannot spawn within a 5 block distance of any player from spawners.",
+        "Silverfish spawners are found in strongholds."
+      ],
+      "drops": [
+        "5 exp when killed by player or tamed wolf."
+      ],
+      "behavior": [
+        "Silverfish call other silverfish in the area upon being hit, which can see through walls and pathfind to the player.",
+        "When idle, silverfish enter a nearby stone/cobblestone/stone bricks/mossy stone bricks/cracked stone bricks/chiseled stone bricks block.",
+        "They take more damage from Bane of Arthropods.",
+        "Damaging, but not killing a silverfish will cause nearby infested blocks to break open."
+      ]
     },
     {
       "name": "skeleton",
       "type": "hostile",
-      "hitPoints": 0,
-      "spawn": [""],
-      "drops": [""],
-      "behavior": [""]
+      "hitPoints": 20,
+      "spawn": [
+        "Skeletons spawn at a light levels <= 7, in groups of 4 or 5 in the Overworld.",
+        "80% of skeletons under the sky spawn as strays in snowy tundras and frozen oceans.",
+        "Spiders have a 1% chance to spawn with a skeleton, creating a skeleton jockey.",
+        "Some spawn in nether fortresses.",
+        "Skeletons are common in soul sand valleys."
+      ],
+      "drops": [
+        "5 exp if killed by player or tamed wolf, extra 1-3 if equipped with armor",
+        "0-2 bones (up to 5 with Looting)",
+        "0-2 arrows (up to 5 with Looting)",
+        "Skeleton skull if killed by a charged creeper.",
+        "8.5% chance to drop gear/tools they spawn with (up to 11.5% with Looting).",
+        "Pumpkin if worn during Halloween."
+      ],
+      "behavior": [
+        "Skeletons chase players they see within 16 blocks",
+        "If you leave a 15-block radius, skeletons wait with the bow charged, waiting for re-entry.",
+        "The detection range of skeletons is reduced when players wear a skeleton skull"
+      ]
     },
     {
       "name": "slime",
       "type": "hostile",
-      "hitPoints": 0,
-      "spawn": [""],
-      "drops": [""],
-      "behavior": [""]
+      "hitPoints": 16,
+      "spawn": [
+        "Slimes spawn in the Overworld in chunks below layer 40.",
+        "Slimes also spawn in swamp biomes between layers 50 and 70 in light levels <= 7.",
+        "Only sizes 1, 2, and 4 spawn naturally.",
+        "Slimes never spawn under a new moon."
+      ],
+      "drops": [
+        "At a slime's smallest size, it drops 0-2 slimeballs (up to 5 with Looting).",
+        "Exp matching their size of 1, 2, or 4."
+      ],
+      "behavior": [
+        "Slime hops around to move.",
+        "Slime moves to any player or iron golem within a 16 blocks spherical distance",
+        "When slime is killed, it splits into 2-4 smaller slimes. Tiny slime disappear when killed.",
+        "Slimes try to move out of water.",
+        "Slimes do damage proportionate to their size, except for the smallest which do not deal damage.",
+        "Slimes attack by hopping toward the player, doing damage on contact."
+      ]
+    },
+    {
+      "name": "warden",
+      "type": "hostile",
+      "hitPoints": 84,
+      "spawn": [
+        "Wardens spawn in deep dark caves, at the \"deepest depths of the world.\""
+      ],
+      "drops": [
+        "Unknown."
+      ],
+      "behavior": [
+        "Wardens are blind, using sensors to detect vibrations.",
+        "Wardens have an exposed heart that flashes.",
+        "Its heart flashes more rapidly and deals more damage more quickly as it takes more damage.",
+        "Light sources flicker near the warden's presence."
+      ]
     },
     {
       "name": "zombie",
       "type": "hostile",
-      "hitPoints": 0,
-      "spawn": [""],
-      "drops": [""],
-      "behavior": [""]
+      "hitPoints": 20,
+      "spawn": [
+        "Zombies spawn in the overworld in up to groups of 4.",
+        "Spawns with a light level of 7 or less",
+        "Zombies exposed to the sky in deserts have a 70-80% chance become husks.",
+        "5% chance to spawn as a zombie villager or baby zombie.",
+        "Baby zombies have a 5% chance of spawning as a chicken jockey.",
+        "Occasionally spawn with the ability to equip dropped armor and weapons."
+      ],
+      "drops": [
+        "5 exp if killed by player or tamed wolf",
+        "0-2 rotten flesh (up to 5 with Looting)",
+        "1 iron ingot",
+        "1 carrot",
+        "1 potato",
+        "Gear/tools they spawn with, or have picked up",
+        "Pumpkin if worn during Halloween."
+      ],
+      "behavior": [
+        "A zombie will target a player within a 40 block radius.",
+        "They will crowd around doors when in pursuit of players and villagers.",
+        "They can break down doors in hard mode.",
+        "They can turn zombies into zombie villagers.",
+        "Several zombies can collaborate and attack as a team (known as a horde)."
+      ]
     }
   ]
 }
