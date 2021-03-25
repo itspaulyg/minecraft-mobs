@@ -1,8 +1,10 @@
 package model
 
 type Content struct {
-	HitPoints int
-	Spawn     []string
-	Drops     []string
-	Behavior []string
+	HitPoints 	int
+	Height		float32
+	Width		float32
+	Spawn     	[]string
+	Drops     	[]string
+	Behavior	[]string
 }

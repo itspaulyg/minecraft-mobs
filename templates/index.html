@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico"/>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karla">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
   <link rel="stylesheet" type="text/css" href="/css/main.css">
@@ -28,73 +29,50 @@
       <br>
       This wiki will show you common mobs in the game and teach you about what they drop.
     </p>
-    <div class="nav">
-      <h2>Passive Mobs</h2>
-      <a href="/chicken/">
-        <img src="/images/chicken-face.png" alt="ChickenFace">
+
+    <div class="mobfilter">
+      <form action="/filter" method="post">
+        <div class="mobtypeselect">
+          <select name="mobType">
+            {{$selected := .MobTypeFilter.Selected}}
+            {{range .MobTypeFilter.Options}}
+            <option value="{{.}}" {{if eq . $selected}}selected{{end}}>{{.}}</option>
+            {{end}}
+          </select>
+        </div>
+
+<!-- 
+        <select name="height" id="height">
+          <option value="height">height</option>
+          <option value="taller">taller than</option>
+          <option value="shorter">shorter than</option>
+        </select>
+        
+        <div id="height-field" hidden>
+          <input name="height-field" type="number" id="height"> blocks
+        </div>
+
+        <select name="base" id="base">
+          <option value="base">base</option>
+          <option value="bigger">bigger than</option>
+          <option value="smaller" selected>smaller than</option>
+        </select>
+
+        <div id="base-field" hidden>
+          <input name="base-field" type="number" id="height"> blocks
+        </div>
+-->
+
+        <input type="submit" value="Apply Filter" class="submit-button">
+      </form>
+    </div>
+
+    <div class="mobs-faces">
+      {{range .Mobs}}
+      <a href="/{{makeFilename .}}/">
+        <img src="/images/{{makeFilename .}}-face.png" alt="{{makeFilename .}}-face">
       </a>
-      <a href="/cow/">
-        <img src="/images/cow-face.png" alt="CowFace">
-      </a>
-      <a href="/horse/">
-        <img src="/images/HorseFace.png" alt="HorseFace">
-      </a>
-      <a href="/mooshroom/">
-        <img src="/images/MooshroomFace.png" alt="MooshroomFace">
-      </a>
-      <a href="/pig/">
-        <img src="/images/pig-face.png" alt="PigFace">
-      </a>
-      <br>
-      <br>
-      <a href="/sheep/">
-        <img src="/images/sheep-face.png" alt="SheepFace">
-      </a>
-      <a href="/snowgolem/">
-        <img src="/images/SnowGolemFace.png" alt="SnowGolem">
-      </a>
-      <a href="/squid/">
-        <img src="/images/SquidFace.png" alt="SquidFace">
-      </a>
-      <a href="/turtle/">
-        <img src="/images/TurtleFace.png" alt="TurtleFace">
-      </a>
-      <a href="/villager/">
-        <img src="/images/villager-face.png" alt="VillagerFace">
-      </a>
-      <h2>Hostile Mobs</h2>
-      <a href="/blaze/">
-        <img src="/images/blaze-face.png" alt="BlazeFace">
-      </a>
-      <a href="/creeper/">
-        <img src="/images/creeper-face.png" alt="CreeperFace">
-      </a>
-      <a href="/ghast/">
-        <img src="/images/ghast-face.png" alt="GhastFace">
-      </a>
-      <a href="/magma-cube/">
-        <img src="/images/magma-cube-face.png" alt="MagmaCube">
-      </a>
-      <a href="/shulker/">
-        <img src="/images/shulker-face.png" alt="Shulker">
-      </a>
-      <br>
-      <br>
-      <a href="/silverfish/">
-        <img src="/images/silverfish-face.png" alt="Silverfish">
-      </a>
-      <a href="/skeleton/">
-        <img src="/images/skeleton-face.png" alt="Skeleton">
-      </a>
-      <a href="/slime/">
-        <img src="/images/slime-face.png" alt="Slime">
-      </a>
-      <a href="/warden/">
-        <img src="/images/warden-face.png" alt="Warden">
-      </a>
-      <a href="/zombie/">
-        <img src="/images/zombie-face.png" alt="ZombieFace">
-      </a>
+      {{end}}
     </div>
   </div>
   <div>
@@ -103,5 +81,25 @@
     </footer>
   </div>
 </body>
+
+<!-- 
+<script type="text/javascript">
+document.getElementById("height").addEventListener("input", function (event) {
+  if (event.target.value === "height") {
+    document.getElementById("height-field").hidden = true;
+  } else {
+    document.getElementById("height-field").hidden = false;
+  }
+}, false);
+
+document.getElementById("base").addEventListener("input", function (event) {
+  if (event.target.value === "base") {
+    document.getElementById("base-field").hidden = true;
+  } else {
+    document.getElementById("base-field").hidden = false;
+  }
+}, false);
+</script>
+-->
 
 </html>

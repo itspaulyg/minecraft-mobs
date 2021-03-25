@@ -22,19 +22,20 @@
   <div class="mobs-solo">
     <div class="mobs-title">
       <h1>{{.Mob}}</h1>
-      <img src="/images/{{makeFilename .Mob}}.png" alt="Minecraft {{.Mob}}" class="creatures">
+      <img src="/images/{{makeFilename .Mob}}.png" alt="Minecraft {{.Mob}}" class="creature" style="height: {{findImgSize .Content.Height}}px; width: auto;">
       <h3>
         Hit Points: {{.Content.HitPoints}} (
         {{if gt .Content.HitPoints 10}}
-        {{half .Content.HitPoints}} x <img src="/images/heart.png" alt="HitPoints">
+        <img src="/images/heart.png" alt="HitPoints"> x {{half .Content.HitPoints}}
         {{else}}
           {{$hp := hearts .Content.HitPoints}}
           {{range $hp}}
           <img src="/images/heart.png" alt="HitPoints">
           {{end}}
           {{end}}
-          )
+        )
       </h3>
+      <h3>Height x Width: {{.Content.Height}} x {{.Content.Width}} blocks</h3>
     </div>
     <div class="mobs-content">
       <h3>Spawn</h3>

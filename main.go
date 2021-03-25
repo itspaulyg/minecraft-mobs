@@ -7,6 +7,7 @@ import (
 	"os"
 	"strings"
 	"time"
+	"fmt"
 	
 	"github.com/itspaulyg/minecraft-mobs/content"
 	"github.com/itspaulyg/minecraft-mobs/model"
@@ -14,10 +15,22 @@ import (
 
 // Generic to each html page
 type PageProps struct {
-	Title   string
-	Mob     string
-	Content model.Content
-	Year	string
+	Title   		string
+	Mobs			[]string
+	Mob     		string
+	Content 		model.Content
+	Year			string
+	MobTypeFilter	MobTypeFilterOptions
+}
+
+type MobTypeFilterOptions struct {
+	Options		[]string
+	Selected	string
+}
+
+var mobTypeFilterOptions = MobTypeFilterOptions{
+	Options:	[]string{"all", "passive", "neutral", "hostile"},
+	Selected: 	"all",
 }
 
 // Keep track of html files
@@ -31,6 +44,9 @@ var templates = template.Must(template.New("main").Funcs(template.FuncMap{
 	"hearts": func(hp int) []int {
 		hearts := make([]int, hp/2)
 		return hearts
+	},
+	"findImgSize": func(height float32) int {
+		return int(height * 100)
 	},
 }).ParseGlob("templates/*.html"))
 
@@ -50,13 +66,11 @@ func main() {
 	// Home
 	http.HandleFunc("/", home)
 
-	// Passive Mobs
-	for _, mob := range content.PassiveMobs {
-		http.HandleFunc("/"+strings.ReplaceAll(mob, " ", "-")+"/", mobHandler(mob))
-	}
+	// Filter
+	http.HandleFunc("/filter", filter)
 
-	// Hostile Mobs
-	for _, mob := range content.HostileMobs {
+	// Mobs
+	for _, mob := range content.AllMobs {
 		http.HandleFunc("/"+strings.ReplaceAll(mob, " ", "-")+"/", mobHandler(mob))
 	}
 
@@ -64,13 +78,13 @@ func main() {
 }
 
 // Render the template to the view
-func renderTemplate(w http.ResponseWriter, p PageProps, check int) {
-	if check == 0 {
+func renderTemplate(w http.ResponseWriter, p PageProps, template int) {
+	if template == 0 {
 		err := templates.ExecuteTemplate(w, "index.html", p)
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 		}
-	} else if check == 1 {
+	} else if template == 1 {
 		err := templates.ExecuteTemplate(w, "mob.html", p)
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
@@ -82,10 +96,35 @@ func renderTemplate(w http.ResponseWriter, p PageProps, check int) {
 func home(w http.ResponseWriter, _ *http.Request) {
 	currentTime := time.Now()
 	currentYear := currentTime.Format("2006")
+
+	mobTypeFilterOptions.Selected = "all"
 	p := PageProps{
-		Title:	"Minecraft Mobs",
-		Year: 	currentYear,
+		Title:			"Minecraft Mobs",
+		Mobs:			content.AllMobs,
+		Year: 			currentYear,
+		MobTypeFilter: 	mobTypeFilterOptions,
 	}
+	renderTemplate(w, p, 0)
+}
+
+func filter(w http.ResponseWriter, r *http.Request) {
+	currentTime := time.Now()
+	currentYear := currentTime.Format("2006")
+
+	r.ParseForm()
+
+	fmt.Println(r.Form)
+
+	mobs := content.GetMobsByFilter(r.Form["mobType"][0])
+	mobTypeFilterOptions.Selected = r.Form["mobType"][0]
+
+	p := PageProps{
+		Title:			"Minecraft Mobs",
+		Mobs:			mobs,
+		Year: 			currentYear,
+		MobTypeFilter: 	mobTypeFilterOptions,
+	}
+
 	renderTemplate(w, p, 0)
 }
 
@@ -97,10 +136,10 @@ func mobHandler(mob string) http.HandlerFunc {
 		
 		c := content.GetMobContent(mob)
 		p := PageProps{
-			Title: 		"Mobs: " + strings.Title(mob),
-			Mob:   		strings.Title(mob),
-			Content:	c,
-			Year:		currentYear,
+			Title: 			"Mobs: " + strings.Title(mob),
+			Mob:   			strings.Title(mob),
+			Content:		c,
+			Year:			currentYear,
 		}
 		renderTemplate(w, p, 1)
 	}

@@ -16,14 +16,14 @@ type Mob struct {
 	Name		string		`json:"name"`
 	Type		string		`json:"type"`
 	HitPoints 	int			`json:"hitPoints"`
+	Height		float32		`json:"height"`
+	Width		float32		`json:"width"`
 	Spawn		[]string	`json:"spawn"`
 	Drops		[]string	`json:"drops"`
-	Behavior []string `json:"behavior"`
+	Behavior 	[]string 	`json:"behavior"`
 }
 
-var PassiveMobs = []string{}
-
-var HostileMobs = []string{}
+var AllMobs = []string{}
 
 var mobs Mobs
 
@@ -38,13 +38,24 @@ func init() {
 		fmt.Println(err)
 	}
 
-	for _, mob := range mobs.Mobs {
-		if mob.Type == "passive" {
-			PassiveMobs = append(PassiveMobs, mob.Name)
-		} else if mob.Type == "hostile" {
-			HostileMobs = append(HostileMobs, mob.Name)
+	for _, m := range mobs.Mobs {
+		AllMobs = append(AllMobs, m.Name)
+	}
+}
+
+func GetMobsByFilter(mobType string) []string {
+	if mobType == "all" {
+		return AllMobs
+	}
+
+	var filteredMobs = []string{}
+	for _, m := range mobs.Mobs {
+		if m.Type == mobType {
+			filteredMobs = append(filteredMobs, m.Name)
 		}
 	}
+
+	return filteredMobs
 }
 
 func GetMobContent(mobName string) model.Content {
@@ -52,6 +63,8 @@ func GetMobContent(mobName string) model.Content {
 	for _, m := range mobs.Mobs {
 		if m.Name == mobName {
 			hitPoints := m.HitPoints
+			height := m.Height
+			width := m.Width
 			spawn := make([]string, len(m.Spawn))
 			copy(spawn, m.Spawn)
 			drops := make([]string, len(m.Drops))
@@ -61,9 +74,11 @@ func GetMobContent(mobName string) model.Content {
 
 			c = model.Content{
 				HitPoints:	hitPoints,
+				Height:		height,
+				Width:		width,
 				Spawn:		spawn,
 				Drops:		drops,
-				Behavior: behavior,
+				Behavior: 	behavior,
 			}
 		}
 	}

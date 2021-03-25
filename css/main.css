@@ -41,11 +41,11 @@ h2 {
 h3 {
   font-family: "Karla", sans-serif;
   font-size: 1.3em;
-  margin-bottom: 0.3em;
+  margin-bottom: 0.28em;
 }
 h4 {
   font-family: "Karla", sans-serif;
-  margin-bottom: 0.2em;
+  margin-bottom: 0.25em;
 }
 
 li {
@@ -75,7 +75,13 @@ li {
   border-radius: 0.5em;
 }
 
-.nav img {
+.mobs-faces {
+  margin: auto;
+  padding: 20px 0px;
+  width: 70%;
+}
+
+.mobs-faces img {
   height: 64px;
   width: 64px;
   padding: 5px;
@@ -104,14 +110,12 @@ li {
   padding: 10px;
 }
 
-.creatures {
-  padding: 5px;
-  border-width: medium;
+.creature {
+  padding: 10px;
+  border-width: 2px;
   border-style: solid;
   border-color: green;
   border-radius: 0.5em;
-  height: 200px;
-  width: auto;
 }
 
 a {
@@ -120,4 +124,31 @@ a {
 
 a:hover {
   opacity: 0.8;
+}
+
+select {
+  width: 100px;
+  padding: 10px 5px;
+  border: none;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+  font-size: 0.9em;
+}
+
+.submit-button {
+  background-color: #34aa2f;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  margin: 10px 2px;
+  cursor: pointer;
+  box-shadow: 0 -4px rgb(21 108 0 / 50%) inset,
+    0 4px rgb(100 253 31 / 99%) inset,
+    -4px 0 rgb(100 253 31 / 50%) inset,
+    4px 0 rgb(21 108 0 / 50%) inset;
+}
+
+.submit-button:hover {
+    opacity: 0.8;
 }
