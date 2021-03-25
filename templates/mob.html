@@ -22,7 +22,7 @@
   <div class="mobs-solo">
     <div class="mobs-title">
       <h1>{{.Mob}}</h1>
-      <img src="/images/{{makeFilename .Mob}}.png" alt="Minecraft {{.Mob}}" class="creature" style="height: {{findImgSize .Content.Height}}px; width: auto;">
+      <img src="/images/{{makeFilename .Mob}}.png" alt="Minecraft {{.Mob}}" class="creature" style="min-height: 70px; height: {{findImgSize .Content.Height}}px; width: auto;">
       <h3>
         Hit Points: {{.Content.HitPoints}} (
         {{if gt .Content.HitPoints 10}}
